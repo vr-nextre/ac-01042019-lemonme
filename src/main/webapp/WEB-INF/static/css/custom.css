@@ -1,0 +1,58 @@
+/* Qui le personalizzazioni per questo tema */
+
+
+body {
+
+}
+
+/*
+esempio didattico
+#colorlib-aside #colorlib-main-menu ul li a {color:lime;}
+#colorlib-aside #colorlib-main-menu ul li a:hover {color:yellow;}
+#colorlib-aside #colorlib-main-menu ul li a:active {color:red;}
+#colorlib-aside #colorlib-main-menu ul li a:visited {color:purple;}
+*/
+
+.bold {font-weight: bold;}
+.bg-light {
+    background: #eaebec !important;
+    line-height:1;
+}
+
+#colorlib-aside, body.offcanvas #colorlib-aside {
+    background: #E8D527;
+}
+
+.btn.btn-primary {
+    background: #FFEF5C;
+    color:#333;
+    border:none;
+    border-radius:0;
+    font-weight: bold;
+}
+.btn.btn-primary:hover {
+    background: #E8D527;
+    color:#333;
+    border:none;
+    border-radius:0;
+}
+
+
+.ftco-section {
+    padding: 2em 1em;
+    position: relative; }
+@media (max-width: 991.98px) {
+    .ftco-section {
+        padding: 1em 0em; } }
+@media (max-width: 629.98px) {
+    .ftco-section {
+        padding: 1em 2em; } }
+
+.ftco-titolo{
+    background: #FFEF5C;
+}
+.ftco-titolo h1 {
+    font-weight: bold;
+}
+
+
