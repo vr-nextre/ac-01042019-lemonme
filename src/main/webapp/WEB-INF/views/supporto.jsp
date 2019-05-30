@@ -75,22 +75,28 @@
                         <h2 class="h3 font-weight-bold">Scrivici</h2>
                     </div>
 
+                    <p>stato: ${stato}</p>
+                    <p>mex: ${mex.get(0)}</p>
+
                     <div class="col-md-6 d-flex">
-                        <form action="#" class="bg-light p-5 contact-form">
+
+
+
+                        <form action="${ctx}/help" method="post" class="bg-light p-5 contact-form">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Your Name">
+                                <input type="text" name="nome" class="form-control" placeholder="Nome e Cognome" required>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Your Email">
+                                <input type="email" name="email" class="form-control" placeholder="Email" >
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Subject">
+                                <input type="text" name="oggetto" class="form-control" placeholder="Oggetto" required>
                             </div>
                             <div class="form-group">
-                                <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
+                                <textarea name="messaggio" cols="30" rows="7" class="form-control" placeholder="Messaggio" required></textarea>
                             </div>
                             <div class="form-group">
-                                <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
+                                <input type="submit" value="Scrivi" class="btn btn-primary py-3 px-5">
                             </div>
                         </form>
                     </div>

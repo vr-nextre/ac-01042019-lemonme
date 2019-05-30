@@ -1,37 +1,52 @@
 package it.nextre.academy.lemonme.controller;
 
+import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class GenericController {
+
+    @Autowired
+    Logger log;
+
     @GetMapping("/")
     //@GetMapping({"/","/index","/home"})
     public String getHome(){
+        log.debug("path: /");
         return "index";
     }
     //esempio per redirect
     @GetMapping({"/index","/home"})
     public String redirectToHome(){
+        log.debug("redirect to: /");
         return "redirect:/";
     }
 
 
     @GetMapping("/profilo")
-    public String getProfilo(){ return "profilo";}
+    public String getProfilo(){
+        log.debug("path: /profilo");
+        return "profilo";}
 
     @GetMapping("/amici")
-    public String getAmici(){ return "amici";}
+    public String getAmici(){
+        log.debug("path: /amici");
+        return "amici";}
 
-    @GetMapping("/supporto")
-    public String getSupporto(){ return "supporto";}
+
 
     @GetMapping("/scopri")
-    public String getScopri(){ return "scopri";}
+    public String getScopri(){
+        log.debug("path: /scopri");
+        return "scopri";}
 
     @GetMapping("/registrati")
-    public String getRegistrati(){ return "registrati";}
+    public String getRegistrati(){
+        log.debug("path: /registrati");
+        return "registrati";}
 
 
     //disable error 404 if favicon isn't present

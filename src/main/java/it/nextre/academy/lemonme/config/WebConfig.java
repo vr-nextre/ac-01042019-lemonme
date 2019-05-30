@@ -1,5 +1,8 @@
 package it.nextre.academy.lemonme.config;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -7,6 +10,8 @@ import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.resource.PathResourceResolver;
+
+
 
 /*
 *
@@ -25,9 +30,6 @@ import org.springframework.web.servlet.resource.PathResourceResolver;
 //@ComponentScan("it.nextre.academy.lemonme")
 public class WebConfig implements WebMvcConfigurer {
 
-    String s="";
-
-
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry
@@ -36,10 +38,13 @@ public class WebConfig implements WebMvcConfigurer {
                 .setCachePeriod(0) //solo in sviluppo
                 .resourceChain(false)  //enable in production mode
                 .addResolver(new PathResourceResolver());
-
-
     }
 
+
+    @Bean
+    public Logger getLogger(){
+        return LogManager.getLogger();
+    }
 
 
 }//end class
