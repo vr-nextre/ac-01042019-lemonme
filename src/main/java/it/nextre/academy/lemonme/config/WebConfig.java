@@ -2,14 +2,19 @@ package it.nextre.academy.lemonme.config;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
+import org.springframework.web.servlet.LocaleResolver;
+import org.springframework.web.servlet.config.annotation.*;
+import org.springframework.web.servlet.i18n.CookieLocaleResolver;
+import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
+import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import org.springframework.web.servlet.resource.PathResourceResolver;
+
+import java.util.Locale;
 
 
 
@@ -45,6 +50,50 @@ public class WebConfig implements WebMvcConfigurer {
     public Logger getLogger(){
         return LogManager.getLogger();
     }
+
+
+
+    //change default location of i18n
+    /*
+    @Bean
+    public MessageSource messageSource() {
+        ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
+        messageSource.setBasename("classpath:/i18/messages");
+        messageSource.setDefaultEncoding("UTF-8");
+        return messageSource;
+    }
+    */
+
+
+
+    @Bean
+    public LocaleResolver localeResolver() {
+        //In session
+        SessionLocaleResolver slr = new SessionLocaleResolver();
+        slr.setDefaultLocale(Locale.ITALIAN);
+        //In cookie
+        //CookieLocaleResolver resolver = new CookieLocaleResolver();
+        //resolver.setDefaultLocale(Locale.ITALIAN);
+        //resolver.setCookieName("localeCookie");
+        //resolver.setCookieMaxAge(86400*15); //15gg
+
+        return slr;
+    }
+
+    @Bean
+    public LocaleChangeInterceptor localeChangeInterceptor() {
+        LocaleChangeInterceptor lci = new LocaleChangeInterceptor();
+        lci.setParamName("language");
+        return lci;
+    }
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(localeChangeInterceptor());
+    }
+
+
+
 
 
 }//end class

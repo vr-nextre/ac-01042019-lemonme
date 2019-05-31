@@ -3,6 +3,17 @@
         <div class="row mb-5">
             <div class="col-md">
                 <div class="ftco-footer-widget mb-4 ml-md-4">
+                    <h2 class="ftco-heading-2"><spring:message code="site.footer.changeLanguage" /></h2>
+                    <div class="flags">
+                        <span data-lang="it" class="flag-icon flag-icon-it"></span>
+                        <span data-lang="en" class="flag-icon flag-icon-gb"></span>
+                        <%--
+                        <span data-lang="de" class="flag-icon flag-icon-de"></span>
+                        <span data-lang="es" class="flag-icon flag-icon-es"></span>
+                        <span data-lang="en" class="flag-icon flag-icon-us"></span>
+                        --%>
+                    </div>
+                    <%--
                     <h2 class="ftco-heading-2">Recent Photos</h2>
                     <ul class="list-unstyled photo">
                         <li><a href="#" class="img" style="background-image: url(${ctx}/res/images/image_1.jpg);"></a></li>
@@ -12,6 +23,7 @@
                         <li><a href="#" class="img" style="background-image: url(${ctx}/res/images/image_5.jpg);"></a></li>
                         <li><a href="#" class="img" style="background-image: url(${ctx}/res/images/image_6.jpg);"></a></li>
                     </ul>
+                    --%>
                 </div>
             </div>
             <div class="col-md">

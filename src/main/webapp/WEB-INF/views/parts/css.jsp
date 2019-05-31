@@ -13,4 +13,5 @@
 <link rel="stylesheet" href="${ctx}/res/css/flaticon.css">
 <link rel="stylesheet" href="${ctx}/res/css/icomoon.css">
 <link rel="stylesheet" href="${ctx}/res/css/style.css">
+<link rel="stylesheet" href="${ctx}/res/css/flag-icon.min.css">
 <link rel="stylesheet" href="${ctx}/res/css/custom.css">

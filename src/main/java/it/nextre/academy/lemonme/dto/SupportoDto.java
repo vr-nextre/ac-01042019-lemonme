@@ -14,7 +14,7 @@ public class SupportoDto {
     @NotNull(message="Nome obbligatorio")
     private String nome;
     @NotNull
-    @NotBlank //simile a @notEmpty ma trimma la stringa
+    @NotBlank(message = "campo obbligatorio") //simile a @notEmpty ma trimma la stringa
     private String email;
     @NotNull
     private String oggetto;

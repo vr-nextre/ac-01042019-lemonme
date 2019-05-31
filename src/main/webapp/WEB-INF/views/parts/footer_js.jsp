@@ -21,3 +21,16 @@
 <script src="${ctx}/res/js/google-map.js"></script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&sensor=false&callback=initMap"></script>
 --%>
+
+<script type="text/javascript">
+    //$(document).ready(function() { });
+    //DOM Ready shorcut
+    $(function(){
+        $("footer .flags .flag-icon").click(function(){
+            let lang = $(this).data("lang")
+            window.location = (window.location.pathname+"?language="+lang)
+        });
+    });
+
+
+</script>
