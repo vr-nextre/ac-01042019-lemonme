@@ -9,7 +9,7 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Date;
 
-@MappedSuperclass  //permette di ereditare i campi su altre entity figlie
+@MappedSuperclass //permette di ereditare i campi su altre entity figlie
 @EqualsAndHashCode
 @ToString
 @Getter
@@ -17,19 +17,16 @@ public class BaseEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public Integer id;
+    Integer id;
 
-    public void setId(Integer id){
-        this.id=id;
-    }
-
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="data_creazione", updatable = false)
-    private Date dataCreazione;
+    @Temporal(TemporalType.TIMESTAMP) //Imposto il tipo che avranno all'interno del db
+    @Column(name = "data_creazione", updatable = false)
+    Date dataCreazione;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="data_modifica", insertable = false)
-    private Date dataModifica;
+    @Column(name = "data_modifica", insertable = false) //insertable = false imposta l'impossibilità
+    Date dataModifica;                                  // di inserire il dato tramite query di insert
+
 
     @PrePersist
     void doCreate(){
@@ -39,6 +36,11 @@ public class BaseEntity implements Serializable {
     @PreUpdate
     void doUpdate(){
         this.dataModifica=new Timestamp(new Date().getTime());
+    }
+
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
 }//end class

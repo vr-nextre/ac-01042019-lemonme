@@ -1,10 +1,14 @@
 package it.nextre.academy.lemonme.controller;
 
+import it.nextre.academy.lemonme.entity.Utente;
+import it.nextre.academy.lemonme.service.UtenteService;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class GenericController {
@@ -12,52 +16,36 @@ public class GenericController {
     @Autowired
     Logger log;
 
+    @Autowired
+    UtenteService utenteService;
+
     @GetMapping("/")
-    //@GetMapping({"/","/index","/home"})
-    public String getHome(){
-        log.debug("path: /");
+    //@GetMapping({"/","/home","/index"})
+    public String getHome(Model m) {
+        log.debug("path:/");
         return "index";
     }
-    //esempio per redirect
-    @GetMapping({"/index","/home"})
-    public String redirectToHome(){
-        log.debug("redirect to: /");
+
+    @GetMapping("/login")
+    public String getLogin(Model model){
+        log.debug("A DEBUG Message");
+
         return "redirect:/";
     }
 
 
-    @GetMapping("/profilo")
-    public String getProfilo(){
-        log.debug("path: /profilo");
-        return "profilo";}
+    @GetMapping("/logout")
+    public String getLogout(){
+        log.debug("path:/logout");
 
-    @GetMapping("/amici")
-    public String getAmici(){
-        log.debug("path: /amici");
-        return "amici";}
+        return "login";
+    }
 
 
+    @GetMapping({"/home","/index"})
+    public String redirectToHome(){
+        log.debug("redirect to /");
 
-    @GetMapping("/scopri")
-    public String getScopri(){
-        log.debug("path: /scopri");
-        return "scopri";}
-
-    @GetMapping("/registrati")
-    public String getRegistrati(){
-        log.debug("path: /registrati");
-        return "registrati";}
-
-
-    //disable error 404 if favicon isn't present
-    /*
-    If we don’t want any favicon for our application, we can disable it by setting
-    the property spring.mvc.favicon.enabled to false. But with this when
-    the browsers lookup they get a “404 Not Found” error.
-    We can avoid this with a custom favicon controller, that returns an empty response:
-     */
-    @GetMapping("favicon.ico")
-    @ResponseBody
-    public void returnNoFavicon() {}
-
+        return "redirect:/";
+    }
 }//end class

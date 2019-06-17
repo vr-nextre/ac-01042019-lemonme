@@ -7,5 +7,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface SupportoRepository extends JpaRepository<Supporto, Integer> {
 
-
-}//end class
+}//end interface
